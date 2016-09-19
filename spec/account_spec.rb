@@ -9,7 +9,7 @@ describe Account do
     expect(subject).to respond_to(:debit).with(2).arguments
   end
 
-  it 'return a statement when requested' do
+  it 'should return a statement when requested' do
     expect(subject).to respond_to(:get_statement).with(1).argument
   end
 
