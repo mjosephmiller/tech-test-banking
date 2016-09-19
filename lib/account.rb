@@ -4,6 +4,8 @@ require_relative 'statement'
 class Account
 
   DEFAULT_BALANCE = 0
+  DEFAULT_TRANSACTION = 0
+
   attr_reader :balance, :current_date
 
 
@@ -14,12 +16,12 @@ class Account
 
   def debit(value, statement)
     @balance -= value
-    statement.history << {"date" => current_date, "credit" => DEFAULT_BALANCE, "debit" => value, "balance" => @balance}
+    statement.history << {"date" => current_date, "credit" => DEFAULT_TRANSACTION, "debit" => value, "balance" => @balance}
   end
 
   def credit(value, statement)
     @balance += value
-    statement.history << {"date" => current_date, "credit" => value, "debit" => DEFAULT_BALANCE, "balance" => @balance}
+    statement.history << {"date" => current_date, "credit" => value, "debit" => DEFAULT_TRANSACTION, "balance" => @balance}
   end
 
   def get_statement(statement)
